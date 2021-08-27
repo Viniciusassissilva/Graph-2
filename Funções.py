@@ -94,7 +94,6 @@ def refinamento(tempo, percuso, Matriz):
             aux1[vertice2] = aux2
             if tamnhanho_percuso(aux1, Matriz) < tamnhanho_percuso(percuso, Matriz):
                 percuso = copy.deepcopy(aux1)
-                print(tamnhanho_percuso(aux1, Matriz))
                 tentativa = []
 
         time.sleep(0.99)

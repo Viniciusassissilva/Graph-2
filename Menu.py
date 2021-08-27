@@ -1,6 +1,8 @@
 import Funções
 
-
+def digitar():
+    arquivo = input("Insira o nome do arquivo\n")
+    return arquivo
 def menu_arquivos():
     print("Informe o arquivo que deseja abrir:\n"
           "Arquivo 1 (teste) = 1\n"
@@ -13,38 +15,51 @@ def menu_arquivos():
 
 
 def escolha_arquivo():
-    menu_arquivos()
-    entrada = int(input("Arquivo: "))
 
-    while entrada != 0:
-        if entrada == 1:
-            arquivo = open("teste.txt", "r")
-            nome = "teste"
-            return (arquivo, nome, entrada)
-        elif entrada == 2:
-            arquivo = open("a280.txt", "r")
-            nome = "a280"
-            return (arquivo, nome, entrada)
-        elif entrada == 3:
-            arquivo = open("ali535.txt", "r")
-            nome = "ali535"
-            return (arquivo, nome, entrada)
-        elif entrada == 4:
-            arquivo = open("ch130.txt", "r")
-            nome = "ch130"
-            return (arquivo, nome, entrada)
-        elif entrada == 5:
-            arquivo = open("fl1577.txt", "r")
-            nome = "fl1577"
-            return (arquivo, nome, entrada)
-        elif entrada == 6:
-            arquivo = open("gr666.txt", "r")
-            nome = "gr666"
-            return (arquivo, nome, entrada)
-        else:
-            menu_arquivos()
-            entrada = int(input("Arquivo: "))
-    return (0, 0, 0)
+    escolha = int(input("Deseja digitar o nome do arquivo (somente arquivo .txt): Sim(1), Não(2)\n"))
+    if escolha == 1:
+        entrada = int(input("Deseja sair(S: 0/N: 1): "))
+        if entrada == 0:
+            return (0,0,0)
+        nome = digitar()
+        arquivo = open(nome + ".txt", "r")
+        return (arquivo, nome, 1)
+    elif escolha == 2:
+        menu_arquivos()
+        entrada = int(input("Arquivo: "))
+
+        while entrada != 0:
+            if entrada == 1:
+                arquivo = open("teste.txt", "r")
+                nome = "teste"
+                return (arquivo, nome, entrada)
+            elif entrada == 2:
+                arquivo = open("a280.txt", "r")
+                nome = "a280"
+                return (arquivo, nome, entrada)
+            elif entrada == 3:
+                arquivo = open("ali535.txt", "r")
+                nome = "ali535"
+                return (arquivo, nome, entrada)
+            elif entrada == 4:
+                arquivo = open("ch130.txt", "r")
+                nome = "ch130"
+                return (arquivo, nome, entrada)
+            elif entrada == 5:
+                arquivo = open("fl1577.txt", "r")
+                nome = "fl1577"
+                return (arquivo, nome, entrada)
+            elif entrada == 6:
+                arquivo = open("gr666.txt", "r")
+                nome = "gr666"
+                return (arquivo, nome, entrada)
+            else:
+                menu_arquivos()
+                entrada = int(input("Arquivo: "))
+        return (0, 0, 0)
+    else:
+        print("Escolha opção correta....")
+
 
 
 def caixeiro(tempo, lista, matriz, saida):
